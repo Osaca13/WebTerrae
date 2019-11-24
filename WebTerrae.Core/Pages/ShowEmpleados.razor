@@ -1,0 +1,68 @@
+﻿@page "/showempleados"
+@using WebTerrae.Data.Services
+@using WebTerrae.Data.Data
+@inject IEmpleadoServices  empleadosList
+
+<h1>Lista de Candidatos</h1>
+
+
+@if (empleados == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Provincia</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var empleado in empleados)
+            {
+                <tr>
+                    <td>@empleado.Nombre</td>
+                    <td>@empleado.PrimerApellido</td>
+                    <td>@empleado.SegundoApellido</td>
+                    <td>@empleado.Provincia</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>
+        <button class="btn btn-primary" @onclick="AddNewEmpleado">Nuevo Empleado</button>
+    </p>
+}
+
+@code {
+
+    IEnumerable<Empleados> empleados;
+    Empleados nuevoEmpleado;
+
+    protected override async Task OnInitializedAsync()
+    {
+        empleados =await Task.Run(() => empleadosList.GetAllEmpleados());
+
+    }
+
+    public void AddNewEmpleado()
+    {
+        nuevoEmpleado = empleadosList.AddNewEmpleado(new Empleados 
+        { 
+           Nombre = "Alberto",
+           PrimerApellido = "Gonzalez",
+           SegundoApellido = "Cifuentes",
+           Identidad = "23844764U",
+           Provincia = "Barcelona",
+           Direccion = "carrer Egido 134 2da.",
+           FechaNacimiento = DateTime.Today,
+           NumeroTelefono = "667342543"
+        }).Result;
+
+    }
+
+ }

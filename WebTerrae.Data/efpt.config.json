@@ -1,0 +1,41 @@
+﻿{
+  "ContextClassName": "WebterraeContext",
+  "ContextNamespace": null,
+  "DefaultDacpacSchema": null,
+  "DoNotCombineNamespace": false,
+  "IdReplace": false,
+  "IncludeConnectionString": false,
+  "ModelNamespace": null,
+  "OutputContextPath": "Data",
+  "OutputPath": "Data",
+  "ProjectRootNamespace": "WebTerrae.Data",
+  "SelectedHandlebarsLanguage": 0,
+  "SelectedToBeGenerated": 0,
+  "Tables": [
+    {
+      "HasPrimaryKey": true,
+      "Name": "[dbo].[Carnets]"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "[dbo].[Empleados]"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "[dbo].[ExperienciaLaboral]"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "[dbo].[Ofertas]"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "[dbo].[SubscripcionEmpleadoOferta]"
+    }
+  ],
+  "UseDatabaseNames": false,
+  "UseFluentApiOnly": true,
+  "UseHandleBars": false,
+  "UseInflector": false,
+  "UseLegacyPluralizer": false
+}
